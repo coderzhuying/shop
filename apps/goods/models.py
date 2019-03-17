@@ -14,6 +14,7 @@ class GoodsCategory(models.Model):
         (2, "二级类目"),
         (3, "三级类目"),
     )
+
     name = models.CharField(default="", max_length=30, verbose_name="类别名",
                             help_text="类别名")
     code = models.CharField(default="", max_length=30, verbose_name="类别code",
@@ -53,6 +54,7 @@ class GoodsCategoryBrand(models.Model):
     class Meta:
         verbose_name = "品牌"
         verbose_name_plural = verbose_name
+        db_table = "goods_goodsbrand"
 
     def __str__(self):
         return self.name
@@ -140,7 +142,7 @@ class HotSearchWords(models.Model):
 
 class IndexAd(models.Model):
     category = models.ForeignKey(GoodsCategory, related_name='category', verbose_name="商品类目", on_delete=models.CASCADE)
-    goods =models.ForeignKey(Goods, related_name='goods', on_delete=models.CASCADE)
+    goods = models.ForeignKey(Goods, related_name='goods', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = '首页商品类别广告'
