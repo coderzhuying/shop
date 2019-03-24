@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# pip install pycryptodome
-
 from datetime import datetime
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
